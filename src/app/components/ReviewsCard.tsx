@@ -91,7 +91,7 @@ export const ReviewsCard = (props: Props) => {
         </div>
 
         <p className="mt-4">
-          "{props.review.testimonial}" - {props.review.name}
+          &ldquo;{props.review.testimonial}&ldquo; - {props.review.name}
         </p>
       </div>
     </div>
