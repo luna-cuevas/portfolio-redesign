@@ -100,7 +100,10 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <Head>
+      <body
+        className={` bg-[#050716] relative overflow-x-hidden h-screen overflow-y-scroll`}>
+        <Navigation projectSlug={slug} />
+        {children}
         <script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GTAG_ID}`}></script>
@@ -113,11 +116,6 @@ export default async function RootLayout({
             gtag('config', '${process.env.NEXT_PUBLIC_GTAG_ID}');
           `,
           }}></script>
-      </Head>
-      <body
-        className={` bg-[#050716] relative overflow-x-hidden h-screen overflow-y-scroll`}>
-        <Navigation projectSlug={slug} />
-        {children}
       </body>
     </html>
   );
