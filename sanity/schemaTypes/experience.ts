@@ -6,6 +6,11 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+    }),
+    defineField({
       name: 'position',
       title: 'Position',
       type: 'string',
@@ -32,8 +37,8 @@ export default defineType({
       type: 'date',
       options: {
         dateFormat: 'MM-YYYY',
+        required: false,
       },
-      validation: Rule => Rule.required()
     }),
     defineField({
       name: 'responsibilities',
@@ -46,16 +51,17 @@ export default defineType({
     select: {
       title: 'position',
       subtitle: 'company',
-      date: 'startDate',
+      startDate: 'startDate',
+      endDate: 'endDate',
     },
     prepare(selection) {
-      const { title, subtitle, date } = selection;
-      const year = date.split('-')[0]; // Assumes date format is "YYYY-MM"
+      const { title, subtitle, startDate, endDate } = selection;
+      const startYear = startDate.split('-')[0]; // Assumes date format is "YYYY-MM"
+      const endYear = endDate ? endDate.split('-')[0] : 'Present';
       return {
         title: title,
-        subtitle: `${subtitle} (${year})`,
+        subtitle: `${subtitle} (${startYear} - ${endYear})`,
       };
     },
   },
 });
-

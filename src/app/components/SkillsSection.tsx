@@ -15,7 +15,9 @@ const SkillsSection = (props: Props) => {
   });
 
   return (
-    <div className="mt-[10vh]  flex max-w-[1000px] flex-wrap mx-auto">
+    <div
+      id="skills"
+      className="pt-[10vh] overflow-hidden flex max-w-[1000px] flex-col mx-auto">
       <div ref={skillsRef} className="relative  flex justify-between w-full">
         <motion.div
           style={{
@@ -28,10 +30,10 @@ const SkillsSection = (props: Props) => {
             ease: [0, 0.71, 0.2, 1.01],
           }}
           className="relative">
-          <h2 className="uppercase text-[#292040] text-9xl font-bold tracking-wide">
+          <h2 className="uppercase text-[#292040] text-5xl md:text-9xl font-bold tracking-wide">
             Skills
           </h2>
-          <p className="absolute text-right right-0 bottom-2 font-light w-2/3 text-sm text-white">
+          <p className="absolute text-right right-0 bottom-2 font-light hidden md:flex md:w-2/3 text-sm text-white">
             My current areas of proficiency and focus of technologies include:
           </p>
         </motion.div>

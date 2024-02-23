@@ -14,7 +14,7 @@ type Props = {
   }[];
   itemsPerSlide?: number | 1;
   contain?: boolean;
-  reviews: {
+  reviews?: {
     name: string;
     dates: string;
     jobTitle: string;
@@ -51,7 +51,10 @@ const CarouselPage = (props: Props) => {
     setDirection(-1);
     setCurrentSlide((prev) =>
       prev === 0 && props.itemsPerSlide != undefined
-        ? Math.ceil(props.reviews?.length / props.itemsPerSlide) - 1
+        ? Math.ceil(
+            Math.max(props.images?.length ?? 0, props.reviews?.length ?? 0) /
+              props.itemsPerSlide
+          ) - 1
         : prev - 1
     );
   };
@@ -60,7 +63,8 @@ const CarouselPage = (props: Props) => {
     setDirection(1);
     setCurrentSlide((prev) => {
       const totalSlides = Math.ceil(
-        props.reviews.length / (props.itemsPerSlide ?? 1)
+        Math.max(props.images?.length ?? 0, props.reviews?.length ?? 0) /
+          (props.itemsPerSlide ?? 1)
       );
       if (props.itemsPerSlide !== undefined && prev < totalSlides - 1) {
         return prev + 1;
@@ -182,6 +186,7 @@ const CarouselPage = (props: Props) => {
                 src={image.src || '/placeholder.png'}
                 alt="image"
                 fill
+                sizes=" (max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 priority
                 placeholder="blur"
                 blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAABYCAYAA"

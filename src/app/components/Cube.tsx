@@ -16,7 +16,7 @@ const Cube = () => {
     // Camera
     const camera = new THREE.PerspectiveCamera(
       30,
-      window.innerWidth / window.innerHeight,
+      (window.innerWidth - 100) / window.innerHeight,
       0.1,
       1000
     );
@@ -190,7 +190,12 @@ const Cube = () => {
     };
   }, []);
 
-  return <div className="w-full h-full cursor-pointer" ref={mountRef} />;
+  return (
+    <div
+      className="w-full  overflow-hidden h-full cursor-pointer"
+      ref={mountRef}
+    />
+  );
 };
 
 export default Cube;

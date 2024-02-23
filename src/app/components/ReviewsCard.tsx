@@ -14,7 +14,7 @@ type Props = {
 
 export const ReviewsCard = (props: Props) => {
   return (
-    <div className="h-fit p-8 flex rounded-xl min-w-[600px] w-2/3 m-auto bg-[#141625]">
+    <div className="h-fit p-8 flex flex-wrap rounded-xl md:min-w-[600px] w-full md:w-2/3 m-auto bg-[#141625]">
       <div className="w-fit h-fit ">
         <Link
           target="_blank"
@@ -86,9 +86,7 @@ export const ReviewsCard = (props: Props) => {
           <p className="opacity-75">{props.review.dates}</p>
         </div>
 
-        <p className="mt-4">
-          "{props.review.testimonial}" - {props.review.name}
-        </p>
+        <p className="mt-4">{props.review.testimonial}</p>
       </div>
     </div>
   );

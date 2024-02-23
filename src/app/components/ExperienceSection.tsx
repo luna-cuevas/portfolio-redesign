@@ -2,24 +2,45 @@
 import Image from 'next/image';
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { PortableText } from '@portabletext/react';
 
-type Props = {};
+type Props = {
+  experiences: any[];
+};
 
 const ExperienceSection = (props: Props) => {
+  const { experiences } = props;
   const experienceRef = useRef<HTMLDivElement>(null);
+  const [openJobIndex, setOpenJobIndex] = useState<number | boolean>(false);
   const { scrollYProgress } = useScroll({
     target: experienceRef,
     offset: ['start end', '-10vh start'],
   });
 
-  const [openJobIndex, setOpenJobIndex] = useState<number | boolean>(false);
+  const formattedDates = (startDate: string, endDate?: string) => {
+    const start = new Date(startDate);
+    const end = endDate ? new Date(endDate) : null;
+    return `${start.toLocaleDateString('en-US', {
+      month: 'short',
+      year: 'numeric',
+    })} - ${
+      end
+        ? end.toLocaleDateString('en-US', {
+            month: 'short',
+            year: 'numeric',
+          })
+        : 'Present'
+    }`;
+  };
 
   const toggleJob = (index: number) => {
     setOpenJobIndex(openJobIndex === index ? false : index);
   };
 
   return (
-    <div className="mt-[10vh] text-white w-full flex max-w-[1000px] flex-wrap mx-auto">
+    <div
+      id="experience"
+      className="my-[10vh] overflow-hidden h-fit text-white w-full flex max-w-[1000px] flex-wrap mx-auto">
       <div
         ref={experienceRef}
         className="relative h-fit  flex justify-between w-full">
@@ -34,10 +55,10 @@ const ExperienceSection = (props: Props) => {
             ease: [0, 0.71, 0.2, 1.01],
           }}
           className="relative">
-          <h2 className="uppercase text-[#292040] text-8xl font-bold tracking-wide">
+          <h2 className="uppercase text-[#292040] text-5xl md:text-9xl font-bold tracking-wide">
             Experience
           </h2>
-          <p className="absolute text-right right-0 bottom-2 font-light w-2/3 text-sm text-white">
+          <p className="absolute text-right right-0 bottom-2 font-light hidden md:block md:w-2/3 text-sm text-white">
             A Story of Growth, Learning, & Professional Development
           </p>
         </motion.div>
@@ -51,7 +72,7 @@ const ExperienceSection = (props: Props) => {
             delay: 0.5,
             ease: [0, 0.71, 0.2, 1.01],
           }}
-          className="my-auto">
+          className="my-auto hidden md:block">
           <Image
             src="/images/resume-icon.png"
             alt="Skills"
@@ -61,7 +82,7 @@ const ExperienceSection = (props: Props) => {
         </motion.div>
       </div>
       <div className="w-full text-white mt-12">
-        {[1, 2, 3].map((job, index) => (
+        {experiences.map((job, index) => (
           <motion.div
             whileHover={{
               scale: 1.05,
@@ -77,9 +98,9 @@ const ExperienceSection = (props: Props) => {
           ${openJobIndex === index ? 'max-h-96' : 'max-h-24'}
            `}>
             <button
-              className="flex justify-between w-full align-middle"
+              className="flex flex-col md:flex-row justify-between w-full align-middle"
               onClick={() => toggleJob(index)}>
-              <div className="flex gap-2">
+              <div className="flex gap-2 justify-between w-full md:w-fit">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="m-auto"
@@ -97,22 +118,27 @@ const ExperienceSection = (props: Props) => {
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                 </svg>
 
-                <div className="text-left">
-                  <h3 className="text-2xl">Position</h3>
-                  <p>Company</p>
+                <div className=" w-full md:w-fit justify-center md:justify-start text-center md:text-left mx-auto md:flex-col flex gap-2">
+                  <h3 className="md:text-2xl text-lg">{job.position}</h3>
+                  <p className="md:hidden">|</p>
+                  <p>{job.company}</p>
                 </div>
               </div>
-              <p className="text-xl">(2020 - 2021)</p>
+              <p className="md:text-xl text-base mx-auto md:mx-0">
+                {formattedDates(job.startDate, job.endDate)}
+              </p>
             </button>
             {openJobIndex === index && (
-              <ul className="px-4">
-                {[1, 2, 3].map((experience, i) => (
-                  <li key={i}>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Porro repellendus excepturi dignissimos.
-                  </li>
-                ))}
-              </ul>
+              <div className="my-4">
+                <PortableText
+                  components={{
+                    list: ({ children }) => (
+                      <ul className="list-disc list-inside ml-4">{children}</ul>
+                    ),
+                  }}
+                  value={job.responsibilities}
+                />
+              </div>
             )}
           </motion.div>
         ))}

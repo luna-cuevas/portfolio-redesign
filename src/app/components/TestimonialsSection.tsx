@@ -14,7 +14,9 @@ const TestimonialsSection = (props: Props) => {
     offset: ['start end', '-25vh start'],
   });
   return (
-    <div className="mt-[10vh] text-white w-full flex max-w-[1000px] flex-wrap mx-auto">
+    <div
+      id="testimonials"
+      className="mt-[10vh] h-fit text-white w-full flex max-w-[1000px] flex-wrap mx-auto">
       <div
         ref={testimonialsRef}
         className="relative h-fit  flex justify-between w-full">
@@ -29,10 +31,10 @@ const TestimonialsSection = (props: Props) => {
             ease: [0, 0.71, 0.2, 1.01],
           }}
           className="relative">
-          <h2 className="uppercase text-[#292040] text-8xl font-bold tracking-wide">
+          <h2 className="uppercase text-[#292040] text-5xl md:text-7xl font-bold tracking-wide">
             Testimonials
           </h2>
-          <p className="absolute text-right right-0 bottom-2 font-light w-2/3 text-sm text-white">
+          <p className="absolute text-right right-0 bottom-2 font-light hidden md:block md:w-2/3 text-sm text-white">
             What people are saying about me
           </p>
         </motion.div>
@@ -46,7 +48,7 @@ const TestimonialsSection = (props: Props) => {
             delay: 0.5,
             ease: [0, 0.71, 0.2, 1.01],
           }}
-          className="my-auto">
+          className="my-auto hidden md:flex">
           <Image
             src="/images/reviews-icon.png"
             alt="Skills"
@@ -61,7 +63,7 @@ const TestimonialsSection = (props: Props) => {
           y: useTransform(scrollYProgress, [0, 0.5], [1000, 0]),
           opacity: useTransform(scrollYProgress, [0.3, 0.5], [0, 1]),
         }}
-        className="relative flex mt-12 items-center justify-center m-auto h-[40vh] w-full">
+        className="relative flex mt-12 items-center justify-center m-auto h-full min-h-[40vh] w-full">
         <CarouselPage
           itemsPerSlide={1}
           reviews={[

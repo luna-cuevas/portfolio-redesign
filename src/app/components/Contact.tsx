@@ -19,7 +19,7 @@ import Link from 'next/link';
 type Props = {};
 
 const Contact = (props: Props) => {
-  const testimonialsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
   const [messageModalOpen, setMessageModalOpen] = useState(false);
   const [messageContents, setMessageContents] = useState({
     name: '',
@@ -28,55 +28,45 @@ const Contact = (props: Props) => {
   });
   const [messageSent, setMessageSent] = useState(false);
   const { scrollYProgress } = useScroll({
-    target: testimonialsRef,
+    target: contactRef,
     offset: ['start end', '-25vh start'],
   });
 
-  const submit = () => {
-    // if (name && email && message) {
-    //   const serviceId = 'service_neh1oii';
-    //   const templateId = 'template_vdw3ffh';
-    //   const userId = 'user_JcD1331LVSdIeKGHTgDqA';
-    //   const templateParams = {
-    //     name,
-    //     email,
-    //     message,
-    //   };
-    //   // If variable isn't set or input is missing, error will be console logged
-    //   emailjs
-    //     .send(serviceId, templateId, templateParams, userId)
-    //     .then((response) => console.log(response))
-    //     .then((error) => console.log(error));
-    //   // After email has been sent, all variables are now set to blank again.
-    //   setName('');
-    //   setEmail('');
-    //   setMessage('');
-    //   setEmailSent(true);
-    // } else {
-    //   // if no data is input, error will alert user
-    //   alert('Please fill in all fields.');
-    // }
+  const submit = async () => {
+    const response = await fetch('/api/sendMail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: messageContents.name,
+        email: messageContents.email,
+        message: messageContents.message,
+      }),
+    });
+
+    if (response.ok) {
+      console.log('Email sent successfully');
+    } else {
+      console.error('Failed to send email');
+    }
   };
   return (
-    <div className="my-[10vh] align-middle  text-white w-full flex max-w-[1000px]  mx-auto">
-      <div ref={testimonialsRef} className="relative h-fit w-fit  flex  ">
-        <div
-          // style={{
-          //   x: useTransform(scrollYProgress, [0, 0.5], [-1000, 0]),
-          //   opacity: useTransform(scrollYProgress, [0.3, 0.5], [0, 1]),
-          // }}
-          // transition={{
-          //   duration: 2,
-          //   delay: 0.5,
-          //   ease: [0, 0.71, 0.2, 1.01],
-          // }}
-          className="relative">
-          <h2 className="uppercase w-fit  text-[#bb84e8] text-7xl font-bold tracking-wide">
+    <motion.div
+      style={{
+        y: useTransform(scrollYProgress, [0, 0.5], [1000, 0]),
+        opacity: useTransform(scrollYProgress, [0.3, 0.5], [0, 1]),
+      }}
+      id="contact"
+      className="my-[15vh] h-[30vh] align-middle  text-white w-full flex max-w-[1000px]  mx-auto">
+      <div ref={contactRef} className="relative h-fit w-fit  flex  ">
+        <div className="relative">
+          <h2 className="uppercase text-[#bb84e8] text-5xl md:text-8xl font-bold tracking-wide">
             Let's Work <br /> Together
           </h2>
         </div>
       </div>
-      <div className="h-fit m-auto flex flex-grow flex-initial justify-center">
+      <div className="h-fit mx-auto flex flex-grow flex-initial justify-center">
         {messageModalOpen ? (
           <div
             style={{ boxShadow: '0 5px 10px 0 #000' }}
@@ -133,7 +123,7 @@ const Contact = (props: Props) => {
                   })
                 }></textarea>
               <div className="flex gap-4 mx-auto w-fit">
-                <button id="bn30" type="button" onClick={() => submit()}>
+                <button id="bn30" type="submit" onClick={() => submit()}>
                   Send Message
                 </button>
                 <button
@@ -154,7 +144,8 @@ const Contact = (props: Props) => {
             menuToggleElement={
               <button
                 id="bn30"
-                className="border-2   text-[#bb84e8] p-2 border-[#bb84e8] ">
+                type="button"
+                className="border-2 text-[#bb84e8] p-2 border-[#bb84e8] ">
                 {/* <p className="text-lg">Contact</p> */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -242,7 +233,7 @@ const Contact = (props: Props) => {
           </CircleMenu>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

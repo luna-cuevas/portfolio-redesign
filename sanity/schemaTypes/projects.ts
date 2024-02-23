@@ -20,6 +20,11 @@ export default defineType({
       },
     }),
     defineField({
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+    }),
+    defineField({
       name: 'skills',
       title: 'Skills',
       type: 'array',
