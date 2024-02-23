@@ -16,7 +16,7 @@ type Project = {
 };
 
 type Props = {
-  params: { slug: string };
+  params: { id: string };
   searchParams?: { [key: string]: string | string[] | undefined };
   project: Project;
   projects?: Project[];
@@ -43,9 +43,12 @@ async function getProjectData({ slug }: { slug: string }) {
   }
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const { project } = await getProjectData({
-    slug: params.slug,
+    slug: params.id,
   });
 
   return {
