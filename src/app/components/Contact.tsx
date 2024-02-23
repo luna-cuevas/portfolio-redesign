@@ -62,7 +62,7 @@ const Contact = (props: Props) => {
       <div ref={contactRef} className="relative h-fit w-fit  flex  ">
         <div className="relative">
           <h2 className="uppercase text-[#bb84e8] text-5xl md:text-8xl font-bold tracking-wide">
-            Let's Work <br /> Together
+            Let&apos;s Work <br /> Together
           </h2>
         </div>
       </div>

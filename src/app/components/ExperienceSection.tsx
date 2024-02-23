@@ -17,6 +17,12 @@ const ExperienceSection = (props: Props) => {
     offset: ['start end', '-10vh start'],
   });
 
+  // Move useTransform hooks to the top level of the component
+  const xInitial = useTransform(scrollYProgress, [0, 0.5], [-1000, 0]);
+  const xFinal = useTransform(scrollYProgress, [0, 0.5], [1000, 0]);
+  const opacity = useTransform(scrollYProgress, [0.3, 0.5], [0, 1]);
+  const y = useTransform(scrollYProgress, [0, 0.5], [1000, 0]);
+
   const formattedDates = (startDate: string, endDate?: string) => {
     const start = new Date(startDate);
     const end = endDate ? new Date(endDate) : null;
@@ -46,8 +52,8 @@ const ExperienceSection = (props: Props) => {
         className="relative h-fit  flex justify-between w-full">
         <motion.div
           style={{
-            x: useTransform(scrollYProgress, [0, 0.5], [-1000, 0]),
-            opacity: useTransform(scrollYProgress, [0.3, 0.5], [0, 1]),
+            x: xInitial,
+            opacity: opacity,
           }}
           transition={{
             duration: 2,
@@ -64,8 +70,8 @@ const ExperienceSection = (props: Props) => {
         </motion.div>
         <motion.div
           style={{
-            x: useTransform(scrollYProgress, [0, 0.5], [1000, 0]),
-            opacity: useTransform(scrollYProgress, [0.3, 0.5], [0, 1]),
+            x: xFinal,
+            opacity: opacity,
           }}
           transition={{
             duration: 2,
@@ -90,8 +96,8 @@ const ExperienceSection = (props: Props) => {
               color: '#CACDED',
             }}
             style={{
-              y: useTransform(scrollYProgress, [0, 0.5], [1000, 0]),
-              opacity: useTransform(scrollYProgress, [0.3, 0.5], [0, 1]),
+              y: y,
+              opacity: opacity,
             }}
             key={index}
             className={`pb-4 my-6 px-4 h-auto transition-[max-height] ease-in-out overflow-hidden duration-300 border-b border-white

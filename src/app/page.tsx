@@ -60,8 +60,8 @@ export default async function Home() {
           <div className="text-white flex  flex-col justify-center w-full  md:px-[25%]">
             <h3 className="text-4xl font-mono mx-0">Hi,</h3>
             <p className="my-2 font-light break-words">
-              I'm Luna, an experienced developer and designer. I specialize in
-              building performant, accessible, and beautiful web applications
+              I&apos;m Luna, an experienced developer and designer. I specialize
+              in building performant, accessible, and beautiful web applications
               using Next.js, Tailwind, and TypeScript.
             </p>
           </div>
