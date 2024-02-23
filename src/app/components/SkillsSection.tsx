@@ -30,11 +30,11 @@ const SkillsSection = (props: Props) => {
             ease: [0, 0.71, 0.2, 1.01],
           }}
           className="relative">
-          <h2 className="uppercase text-[#292040] text-5xl md:text-9xl font-bold tracking-wide">
+          <h2 className="uppercase text-[#292040] text-6xl lg:text-9xl font-bold tracking-wide">
             Skills
           </h2>
-          <p className="absolute text-right right-0 bottom-2 font-light hidden md:flex md:w-2/3 text-sm text-white">
-            My current areas of proficiency and focus of technologies include:
+          <p className="absolute text-right right-0 bottom-2 font-light hidden md:block md:w-2/3 text-base text-white">
+            My current areas of proficiency:
           </p>
         </motion.div>
         <motion.div

@@ -127,13 +127,13 @@ const ProjectDetails = (props: Props) => {
                   ease: 'easeInOut',
                 }}
                 key={project.title}
-                className="flex flex-col justify-center px-[5%] pb-4">
+                className="flex flex-col justify-center px-[5%] pb-[15vh]">
                 <div className="flex flex-wrap w-full mx-auto ">
                   <div className="flex flex-col my-4 w-full">
                     <h2 className="md:text-2xl text-xl w-fit mx-auto mb-4">
                       {project.title}
                     </h2>
-                    <ul className="flex gap-4 mx-auto flex-wrap">
+                    <ul className="flex gap-2 md:gap-4 mx-auto flex-wrap justify-center">
                       {project.skills.map((skill) => {
                         return (
                           <li

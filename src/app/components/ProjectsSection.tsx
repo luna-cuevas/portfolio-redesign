@@ -47,7 +47,7 @@ const ProjectsSection = (props: Props) => {
   const buttonOpacity = useTransform(buttonScrollYProgress, [0, 0.6], [0, 1]);
 
   return (
-    <div className="my-[10vh] overflow-hidden h-fit w-full flex max-w-[1000px] flex-wrap mx-auto">
+    <div className="my-[10vh]  h-fit w-full flex max-w-[1000px] flex-wrap mx-auto">
       <div
         ref={projectsRef}
         className="relative h-fit  flex justify-between w-full">
@@ -62,10 +62,10 @@ const ProjectsSection = (props: Props) => {
             ease: [0, 0.71, 0.2, 1.01],
           }}
           className="relative">
-          <h2 className="uppercase text-[#292040] text-5xl md:text-9xl font-bold tracking-wide">
+          <h2 className="uppercase text-[#292040] text-5xl lg:text-9xl font-bold tracking-wide">
             Projects
           </h2>
-          <p className="absolute text-right right-0 bottom-2 font-light hidden md:block md:w-2/3 text-sm text-white">
+          <p className="absolute text-right right-0 bottom-2 font-light hidden md:block md:w-2/3 text-base text-white">
             Featured work and Project Showcase{' '}
           </p>
         </motion.div>
@@ -79,7 +79,7 @@ const ProjectsSection = (props: Props) => {
             delay: 0.5,
             ease: [0, 0.71, 0.2, 1.01],
           }}
-          className="my-auto">
+          className="my-auto hidden md:block">
           <Image
             src="/images/code-icon.png"
             alt="Skills"

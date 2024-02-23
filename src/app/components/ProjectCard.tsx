@@ -47,7 +47,7 @@ const ProjectCard = (props: Props) => {
       className="flex flex-wrap text-white rounded-xl my-6 py-6 bg-[#141625] w-full justify-between px-6">
       <div className="md:w-1/2 w-full">
         <Link className="cursor-pointer flex w-fit" href={`/projects/${title}`}>
-          <h2 className="text-3xl gap-2 flex w-fit">
+          <h2 className="md:text-3xl text-xl gap-2 flex w-fit">
             <span className="text-[#bb84e8]">0{index + 1}</span>
             {title}
           </h2>
@@ -78,21 +78,19 @@ const ProjectCard = (props: Props) => {
           }}
           value={body.slice(0, 1)}
         />
-        <div className="flex gap-4 my-4">
-          <ul className="flex gap-4 flex-wrap justify-center mx-auto">
-            {skills.map((skill, index) => (
-              <li
-                style={{
-                  borderImage:
-                    'linear-gradient(to right, #4568dc, #b06ab3) 1 1 100%',
-                }}
-                className="border-2 text-sm"
-                key={index}>
-                {skill}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ul className="flex my-4 gap-2 md:gap-4 flex-wrap justify-center mx-auto">
+          {skills.map((skill, index) => (
+            <li
+              style={{
+                borderImage:
+                  'linear-gradient(to right, #4568dc, #b06ab3) 1 1 100%',
+              }}
+              className="border-2 text-xs"
+              key={index}>
+              {skill}
+            </li>
+          ))}
+        </ul>
         <div className="flex gap-4 mx-auto w-fit">
           <button id="bn30" type="button">
             <Link href={`/projects/${slug.current}`}>View More</Link>

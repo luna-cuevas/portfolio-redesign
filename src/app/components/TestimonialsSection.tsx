@@ -19,7 +19,7 @@ const TestimonialsSection = (props: Props) => {
       className="mt-[10vh] h-fit text-white w-full flex max-w-[1000px] flex-wrap mx-auto">
       <div
         ref={testimonialsRef}
-        className="relative h-fit  flex justify-between w-full">
+        className="relative h-fit flex justify-between w-full">
         <motion.div
           style={{
             x: useTransform(scrollYProgress, [0, 0.5], [-1000, 0]),
@@ -30,11 +30,11 @@ const TestimonialsSection = (props: Props) => {
             delay: 0.5,
             ease: [0, 0.71, 0.2, 1.01],
           }}
-          className="relative">
+          className="relative text-wrap">
           <h2 className="uppercase text-[#292040] text-5xl md:text-7xl font-bold tracking-wide">
             Testimonials
           </h2>
-          <p className="absolute text-right right-0 bottom-2 font-light hidden md:block md:w-2/3 text-sm text-white">
+          <p className="absolute text-right right-0 bottom-2 font-light hidden md:block md:w-2/3 text-base text-white">
             What people are saying about me
           </p>
         </motion.div>

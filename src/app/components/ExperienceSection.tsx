@@ -46,7 +46,7 @@ const ExperienceSection = (props: Props) => {
   return (
     <div
       id="experience"
-      className="my-[10vh] overflow-hidden h-fit text-white w-full flex max-w-[1000px] flex-wrap mx-auto">
+      className="my-[10vh]  h-fit text-white w-full flex max-w-[1000px] flex-wrap mx-auto">
       <div
         ref={experienceRef}
         className="relative h-fit  flex justify-between w-full">
@@ -61,10 +61,10 @@ const ExperienceSection = (props: Props) => {
             ease: [0, 0.71, 0.2, 1.01],
           }}
           className="relative">
-          <h2 className="uppercase text-[#292040] text-5xl md:text-9xl font-bold tracking-wide">
+          <h2 className="uppercase text-[#292040] text-5xl lg:text-9xl font-bold tracking-wide">
             Experience
           </h2>
-          <p className="absolute text-right right-0 bottom-2 font-light hidden md:block md:w-2/3 text-sm text-white">
+          <p className="absolute text-right right-0 bottom-2 font-light hidden md:block md:w-2/3 text-base text-white">
             A Story of Growth, Learning, & Professional Development
           </p>
         </motion.div>
@@ -92,7 +92,6 @@ const ExperienceSection = (props: Props) => {
           <motion.div
             whileHover={{
               scale: 1.05,
-              // i want the text to be changing color on hover like a gradient or something
               color: '#CACDED',
             }}
             style={{
@@ -100,11 +99,11 @@ const ExperienceSection = (props: Props) => {
               opacity: opacity,
             }}
             key={index}
-            className={`pb-4 my-6 px-4 h-auto transition-[max-height] ease-in-out overflow-hidden duration-300 border-b border-white
+            className={`pb-4 my-6 md:px-4 h-auto transition-[max-height] ease-in-out overflow-hidden duration-300 border-b border-white
           ${openJobIndex === index ? 'max-h-96' : 'max-h-24'}
            `}>
             <button
-              className="flex flex-col md:flex-row justify-between w-full align-middle"
+              className="flex flex-col sm:flex-row justify-between w-full align-middle"
               onClick={() => toggleJob(index)}>
               <div className="flex gap-2 justify-between w-full md:w-fit">
                 <svg
@@ -124,13 +123,12 @@ const ExperienceSection = (props: Props) => {
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                 </svg>
 
-                <div className=" w-full md:w-fit justify-center md:justify-start text-center md:text-left mx-auto md:flex-col flex gap-2">
+                <div className=" w-full md:w-fit flex-col justify-center md:justify-start text-center md:text-left mx-auto flex ">
                   <h3 className="md:text-2xl text-lg">{job.position}</h3>
-                  <p className="md:hidden">|</p>
                   <p>{job.company}</p>
                 </div>
               </div>
-              <p className="md:text-xl text-base mx-auto md:mx-0">
+              <p className="md:text-xl pl-[30px] text-base mx-auto md:mx-0">
                 {formattedDates(job.startDate, job.endDate)}
               </p>
             </button>

@@ -41,52 +41,58 @@ export const ReviewsCard = (props: Props) => {
         </Link>
         {/* <div>{props.review.rating}</div> */}
         {/* convert the rating number into stars  */}
-        <div className="flex gap-1 items-center align-middle my-2">
-          {Array.from({ length: Math.floor(props.review.rating) }, (_, i) => (
-            <svg
-              key={i}
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-[#118A00] inline"
-              fill="#118A00"
-              viewBox="0 0 24 24"
-              stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.7 5.82 22l1.18-7.86L2 9.27l6.91-1.01L12 2z"
-              />
-            </svg>
-          ))}
-          {props.review.rating % 1 !== 0 && (
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-[#118A00] inline"
-              fill="#118A00"
-              viewBox="0 0 50 50"
-              width={24}
-              height={24}
-              stroke="currentColor">
-              <linearGradient id="half-fill" x1="0" x2="100%" y1="0" y2="0">
-                <stop offset="50%" stop-color="currentColor" />
-                <stop offset="50%" stop-color="transparent" />
-              </linearGradient>
-              <path
-                d="M25 38.8l-13.4 7.1 2.5-14.5L1 17.2l14.6-2.1L25 1l5.4 14.1L45 17.2l-12.1 14.2 2.5 14.5z"
-                fill="url(#half-fill)"
-              />
-              <path
-                d="M25 38.8l-13.4 7.1 2.5-14.5L1 17.2l14.6-2.1L25 1l5.4 14.1L45 17.2l-12.1 14.2 2.5 14.5z"
-                fill="none"
-                stroke="currentColor"
-              />
-            </svg>
-          )}
-          <p className="my-auto mx-1">{props.review.rating} |</p>
+        <div className="flex flex-wrap gap-1 items-center align-middle my-2">
+          <div className="flex ">
+            {Array.from({ length: Math.floor(props.review.rating) }, (_, i) => (
+              <svg
+                key={i}
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-[#118A00] inline"
+                fill="#118A00"
+                viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.7 5.82 22l1.18-7.86L2 9.27l6.91-1.01L12 2z"
+                />
+              </svg>
+            ))}
+            {props.review.rating % 1 !== 0 && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-[#118A00] inline"
+                fill="#118A00"
+                viewBox="0 0 50 50"
+                width={24}
+                height={24}
+                stroke="currentColor">
+                <linearGradient id="half-fill" x1="0" x2="100%" y1="0" y2="0">
+                  <stop offset="50%" stop-color="currentColor" />
+                  <stop offset="50%" stop-color="transparent" />
+                </linearGradient>
+                <path
+                  d="M25 38.8l-13.4 7.1 2.5-14.5L1 17.2l14.6-2.1L25 1l5.4 14.1L45 17.2l-12.1 14.2 2.5 14.5z"
+                  fill="url(#half-fill)"
+                />
+                <path
+                  d="M25 38.8l-13.4 7.1 2.5-14.5L1 17.2l14.6-2.1L25 1l5.4 14.1L45 17.2l-12.1 14.2 2.5 14.5z"
+                  fill="none"
+                  stroke="currentColor"
+                />
+              </svg>
+            )}
+          </div>
+
+          <p className="my-auto mx-1">{props.review.rating} </p>
+          <p className="hidden sm:block">|</p>
           <p className="opacity-75">{props.review.dates}</p>
         </div>
 
-        <p className="mt-4">{props.review.testimonial}</p>
+        <p className="mt-4">
+          "{props.review.testimonial}" - {props.review.name}
+        </p>
       </div>
     </div>
   );

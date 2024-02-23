@@ -58,15 +58,17 @@ const Contact = (props: Props) => {
         opacity: useTransform(scrollYProgress, [0.3, 0.5], [0, 1]),
       }}
       id="contact"
-      className="my-[15vh] h-[30vh] align-middle  text-white w-full flex max-w-[1000px]  mx-auto">
-      <div ref={contactRef} className="relative h-fit w-fit  flex  ">
+      className="my-[15vh] h-[30vh] align-middle  text-white w-full flex flex-col md:flex-row max-w-[1000px]  mx-auto">
+      <div
+        ref={contactRef}
+        className="relative h-fit w-fit text-center mx-auto flex  ">
         <div className="relative">
-          <h2 className="uppercase text-[#bb84e8] text-5xl md:text-8xl font-bold tracking-wide">
+          <h2 className="uppercase text-[#bb84e8] text-5xl md:text-7xl font-bold tracking-wide">
             Let&apos;s Work <br /> Together
           </h2>
         </div>
       </div>
-      <div className="h-fit mx-auto flex flex-grow flex-initial justify-center">
+      <div className="h-fit my-8 mx-auto flex flex-grow flex-initial justify-center">
         {messageModalOpen ? (
           <div
             style={{ boxShadow: '0 5px 10px 0 #000' }}

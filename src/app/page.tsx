@@ -7,6 +7,7 @@ import TestimonialsSection from './components/TestimonialsSection';
 import Contact from './components/Contact';
 import { client } from '../../sanity/lib/client';
 import ProgressBar from './components/ProgressBar';
+import Head from 'next/head';
 
 export default async function Home() {
   async function getData() {
@@ -26,7 +27,7 @@ export default async function Home() {
   const { projects, experiences } = await getData();
 
   return (
-    <main className="flex  px-[5vw] w-screen  flex-col relative ">
+    <main className="flex  px-[5vw] w-full  flex-col relative ">
       <ProgressBar />
 
       <div className="h-[calc(100vh-80px)] w-full overflow-hidden  mx-auto flex flex-col">
