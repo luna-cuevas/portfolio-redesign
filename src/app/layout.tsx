@@ -106,15 +106,15 @@ export default async function RootLayout({
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-ED7F1Y8X3R"></script>
-        <script>
-          {`  
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `  
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
-            gtag('config', 'G-ED7F1Y8X3R');
-          `}
-        </script>
+            gtag('config', ${process.env.NEXT_PUBLIC_GTAG_ID});
+          `,
+          }}></script>
       </Head>
       <body
         className={`${inter.className} bg-[#050716] relative overflow-x-hidden h-screen overflow-y-scroll`}>
