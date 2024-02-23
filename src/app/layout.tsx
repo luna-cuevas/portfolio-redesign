@@ -8,9 +8,8 @@ import ReactGA from 'react-ga4';
 
 export const metadata: Metadata = {
   title: "Luna's Portfolio",
-  description: `
-    I am a front-end developer and designer with a passion for creating beautiful and functional websites. I specialize in React, Next.js, and Tailwind CSS. I am also experienced in working with headless CMSs like Sanity.io and WordPress. I am currently available for freelance work.
-  `,
+  description:
+    'I am a front-end developer and designer with a passion for creating beautiful and functional websites. I specialize in React, Next.js, and Tailwind CSS. I am also experienced in working with headless CMSs like Sanity.io and WordPress. I am currently available for freelance work.',
   icons: [
     {
       url: '/images/luna-logo.png',
@@ -54,9 +53,8 @@ export const metadata: Metadata = {
       },
     ],
     title: "Luna's Portfolio",
-    description: `
-      I am a front-end developer and designer with a passion for creating beautiful and functional websites. I specialize in React, Next.js, and Tailwind CSS. I am also experienced in working with headless CMSs like Sanity.io and WordPress. I am currently available for freelance work.
-    `,
+    description:
+      'I am a front-end developer and designer with a passion for creating beautiful and functional websites. I specialize in React, Next.js, and Tailwind CSS. I am also experienced in working with headless CMSs like Sanity.io and WordPress. I am currently available for freelance work.',
     url: `https://www.luna-cuevas.com/`,
     type: 'article',
     locale: 'en_US',
@@ -104,8 +102,8 @@ export default async function RootLayout({
     <html lang="en">
       <Head>
         <script
-          src="https://www.googletagmanager.com/gtag/js?id=G-ED7F1Y8X3R"
-          strategy="afterInteractive"></script>
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GTAG_ID}`}></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `  
