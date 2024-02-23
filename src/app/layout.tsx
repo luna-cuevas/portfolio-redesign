@@ -104,15 +104,15 @@ export default async function RootLayout({
     <html lang="en">
       <Head>
         <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-ED7F1Y8X3R"></script>
+          src="https://www.googletagmanager.com/gtag/js?id=G-ED7F1Y8X3R"
+          strategy="afterInteractive"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `  
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', ${process.env.NEXT_PUBLIC_GTAG_ID});
+            gtag('config', '${process.env.NEXT_PUBLIC_GTAG_ID}');
           `,
           }}></script>
       </Head>
