@@ -4,8 +4,7 @@ import './globals.css';
 import Navigation from './components/Navigation';
 import { client } from '../../sanity/lib/client';
 import Head from 'next/head';
-
-const inter = Inter({ subsets: ['latin'] });
+import ReactGA from 'react-ga4';
 
 export const metadata: Metadata = {
   title: "Luna's Portfolio",
@@ -99,6 +98,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const { slug } = await getData();
+  ReactGA.initialize(process.env.NEXT_PUBLIC_GTAG_ID as string);
 
   return (
     <html lang="en">
@@ -117,7 +117,7 @@ export default async function RootLayout({
           }}></script>
       </Head>
       <body
-        className={`${inter.className} bg-[#050716] relative overflow-x-hidden h-screen overflow-y-scroll`}>
+        className={` bg-[#050716] relative overflow-x-hidden h-screen overflow-y-scroll`}>
         <Navigation projectSlug={slug} />
         {children}
       </body>
