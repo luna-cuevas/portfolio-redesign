@@ -22,6 +22,11 @@ type Props = {
   projects?: Project[];
 };
 
+type MetadataProps = {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
 async function getProjectData({ slug }: { slug: string }) {
   try {
     const query = `*[_type == "project" && slug.current == $slug][0]`;
@@ -44,11 +49,11 @@ async function getProjectData({ slug }: { slug: string }) {
 }
 
 export async function generateMetadata(
-  { params }: Props,
+  { params, searchParams }: MetadataProps,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const { project } = await getProjectData({
-    slug: params.id,
+    slug: params.slug,
   });
 
   return {
