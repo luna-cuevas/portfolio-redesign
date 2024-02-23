@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Navigation from './components/Navigation';
 import { client } from '../../sanity/lib/client';
+import Head from 'next/head';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -101,6 +102,20 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <Head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-ED7F1Y8X3R"></script>
+        <script>
+          {`  
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-ED7F1Y8X3R');
+          `}
+        </script>
+      </Head>
       <body
         className={`${inter.className} bg-[#050716] relative overflow-x-hidden h-screen overflow-y-scroll`}>
         <Navigation projectSlug={slug} />
