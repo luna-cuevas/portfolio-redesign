@@ -64,8 +64,8 @@ export const metadata: Metadata = {
     title: "Luna's Portfolio",
     site: 'https://www.luna-cuevas.com/',
     card: 'summary_large_image',
-    description: `
-      I am a front-end developer and designer with a passion for creating beautiful and functional websites. I specialize in React, Next.js, and Tailwind CSS. I am also experienced in working with headless CMSs like Sanity.io and WordPress. I am currently available for freelance work.`,
+    description:
+      'I am a front-end developer and designer with a passion for creating beautiful and functional websites. I specialize in React, Next.js, and Tailwind CSS. I am also experienced in working with headless CMSs like Sanity.io and WordPress. I am currently available for freelance work.',
     images: [
       {
         url: '/images/luna-logo.png',
