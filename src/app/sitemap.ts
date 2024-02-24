@@ -19,6 +19,7 @@ const dynamicPaths = await fetchDynamicPaths();
 
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = 'https://www.luna-cuevas.com';
 
   const staticPaths = [
     '/',
@@ -31,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const formattedPaths = combinedPaths.map((path) => {
     return {
-      url: path,
+      url: `${baseUrl}${path}`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
