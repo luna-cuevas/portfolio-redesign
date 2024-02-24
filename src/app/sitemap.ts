@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const combinedPaths = [...staticPaths, ...dynamicPaths];
 
-  combinedPaths.map((path) => {
+  const formattedPaths = combinedPaths.map((path) => {
     return {
       url: path,
       lastModified: new Date(),
@@ -38,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   })
 
-  console.log(combinedPaths);
+  console.log(formattedPaths);
 
 
 
