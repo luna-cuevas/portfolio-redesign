@@ -25,8 +25,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
   ];
 
-
-
   const combinedPaths = [...staticPaths, ...dynamicPaths];
 
   const formattedPaths = combinedPaths.map((path) => {
@@ -38,10 +36,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     };
   })
 
-  console.log(formattedPaths);
-
-
-
-  return combinedPaths;
+  return formattedPaths as MetadataRoute.Sitemap;
 
 }
