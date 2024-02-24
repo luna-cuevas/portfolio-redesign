@@ -5,9 +5,10 @@ async function fetchDynamicPaths() {
   try {
     const query = `*[_type == "project"]{ "slug": slug.current }`;
     const projects = await client.fetch(query);
+    console.log(projects);
 
     // Correctly access the `slug` property for each project
-    return projects.map((project: any) => `/projects/${project.slug.current}`);
+    return projects.map((project: any) => `/projects/${project.slug}`);
   } catch (error) {
     console.error(error);
     return [];
