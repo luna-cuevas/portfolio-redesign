@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
-const { client } = require('../sanity/lib/client');
+const { client } = require('../../../sanity/lib/client');
 
 // Base URL of your site
-const BASE_URL = 'https://www.yoursite.com';
+const BASE_URL = 'https://www.luna-cuevas.com/';
 
 // Static paths (add your static routes here)
 const staticPaths = ['', '/'];
