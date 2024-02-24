@@ -5,7 +5,6 @@ async function fetchDynamicPaths() {
   try {
     const query = `*[_type == "project"]{ "slug": slug.current }`;
     const projects = await client.fetch(query);
-    console.log(projects);
 
     // Correctly access the `slug` property for each project
     return projects.map((project: any) => `/projects/${project.slug}`);
@@ -15,7 +14,7 @@ async function fetchDynamicPaths() {
   }
 }
 
-const dynamicPaths = await fetchDynamicPaths();
+var dynamicPaths = await fetchDynamicPaths();
 
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -45,24 +44,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return combinedPaths;
 
-  // [
-  //   {
-  //     url: 'https://acme.com',
-  //     lastModified: new Date(),
-  //     changeFrequency: 'yearly',
-  //     priority: 1,
-  //   },
-  //   {
-  //     url: 'https://acme.com/about',
-  //     lastModified: new Date(),
-  //     changeFrequency: 'monthly',
-  //     priority: 0.8,
-  //   },
-  //   {
-  //     url: 'https://acme.com/blog',
-  //     lastModified: new Date(),
-  //     changeFrequency: 'weekly',
-  //     priority: 0.5,
-  //   },
-  // ]
 }
