@@ -9,6 +9,12 @@ type Props = {
 
 const Navigation = (props: Props) => {
   const { projectSlug } = props;
+  const baseURL =
+    // if in dev mode, use localhost
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:3000'
+      : 'https://www.luna-cuevas.com';
+
   return (
     <nav className="flex md:w-full relative z-[50000] bg-[#050716] h-[80px] border-b-[#bb84e88a] border-b-2 align-middle justify-between px-[10%]">
       <div className="relative my-auto">
@@ -25,8 +31,8 @@ const Navigation = (props: Props) => {
             <Link href="/">Home</Link>
           </li>
           <li>
-            <a
-              href="#skills"
+            <Link
+              href={`${baseURL}skills`}
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('skills')?.scrollIntoView({
@@ -34,14 +40,14 @@ const Navigation = (props: Props) => {
                 });
               }}>
               Skills
-            </a>
+            </Link>
           </li>
           <li>
-            <Link href={`projects/${projectSlug}`}>Portfolio</Link>
+            <Link href={`${baseURL}/projects/${projectSlug}`}>Portfolio</Link>
           </li>
           <li>
             <a
-              href="#experience"
+              href={baseURL + '#experience'}
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('experience')?.scrollIntoView({
@@ -53,7 +59,7 @@ const Navigation = (props: Props) => {
           </li>
           <li>
             <a
-              href="#testimonials"
+              href={baseURL + '#testimonials'}
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('testimonials')?.scrollIntoView({
@@ -65,7 +71,7 @@ const Navigation = (props: Props) => {
           </li>
           <li>
             <a
-              href="#contact"
+              href={baseURL + '#contact'}
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('contact')?.scrollIntoView({
@@ -108,7 +114,7 @@ const Navigation = (props: Props) => {
           </li>
           <li>
             <a
-              href="#skills"
+              href={baseURL + '#skills'}
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('skills')?.scrollIntoView({
@@ -123,7 +129,7 @@ const Navigation = (props: Props) => {
           </li>
           <li>
             <a
-              href="#experience"
+              href={baseURL + '#experience'}
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('experience')?.scrollIntoView({
@@ -135,7 +141,7 @@ const Navigation = (props: Props) => {
           </li>
           <li>
             <a
-              href="#testimonials"
+              href={baseURL + '#testimonials'}
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('testimonials')?.scrollIntoView({
@@ -147,7 +153,7 @@ const Navigation = (props: Props) => {
           </li>
           <li>
             <a
-              href="#contact"
+              href={baseURL + '#contact'}
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('contact')?.scrollIntoView({
