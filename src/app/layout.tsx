@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 import Navigation from './components/Navigation';
 import { client } from '../../sanity/lib/client';
@@ -100,6 +100,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <Analytics />
       <body
         className={` bg-[#050716] relative overflow-x-hidden h-screen overflow-y-scroll`}>
         <Navigation projectSlug={slug} />

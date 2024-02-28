@@ -27,60 +27,12 @@ const Navigation = (props: Props) => {
       </div>
       <div className="hidden md:flex justify-between ">
         <ul className="flex my-auto gap-4 text-white">
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link
-              href={`${baseURL}skills`}
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('skills')?.scrollIntoView({
-                  behavior: 'smooth',
-                });
-              }}>
-              Skills
-            </Link>
-          </li>
-          <li>
-            <Link href={`${baseURL}/projects/${projectSlug}`}>Portfolio</Link>
-          </li>
-          <li>
-            <a
-              href={baseURL + '#experience'}
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('experience')?.scrollIntoView({
-                  behavior: 'smooth',
-                });
-              }}>
-              Experience
-            </a>
-          </li>
-          <li>
-            <a
-              href={baseURL + '#testimonials'}
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('testimonials')?.scrollIntoView({
-                  behavior: 'smooth',
-                });
-              }}>
-              Testimonies
-            </a>
-          </li>
-          <li>
-            <a
-              href={baseURL + '#contact'}
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('contact')?.scrollIntoView({
-                  behavior: 'smooth',
-                });
-              }}>
-              Contact
-            </a>
-          </li>
+          <Link href="/">Home</Link>
+          <Link href={`${baseURL}#skills`}>Skills</Link>
+          <Link href={`${baseURL}/projects/${projectSlug}`}>Portfolio</Link>
+          <Link href={`${baseURL}#experience`}>Experience</Link>
+          <Link href={`${baseURL}#testimonials`}>Testimonies</Link>
+          <Link href={`${baseURL}#contact`}>Contact</Link>
         </ul>
       </div>
 
@@ -109,60 +61,12 @@ const Navigation = (props: Props) => {
         id="mobile-nav"
         className="hidden z-[50000] border-b-[#bb84e88a] py-2 border-b-2 md:hidden gap-4 absolute bottom-0 top-full right-0 bg-[#050716] w-full h-fit">
         <ul className="flex my-auto w-fit mx-auto text-center underline flex-col gap-4 text-white">
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <a
-              href={baseURL + '#skills'}
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('skills')?.scrollIntoView({
-                  behavior: 'smooth',
-                });
-              }}>
-              Skills
-            </a>
-          </li>
-          <li>
-            <Link href={`projects/${projectSlug}`}>Portfolio</Link>
-          </li>
-          <li>
-            <a
-              href={baseURL + '#experience'}
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('experience')?.scrollIntoView({
-                  behavior: 'smooth',
-                });
-              }}>
-              Experience
-            </a>
-          </li>
-          <li>
-            <a
-              href={baseURL + '#testimonials'}
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('testimonials')?.scrollIntoView({
-                  behavior: 'smooth',
-                });
-              }}>
-              Testimonies
-            </a>
-          </li>
-          <li>
-            <a
-              href={baseURL + '#contact'}
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('contact')?.scrollIntoView({
-                  behavior: 'smooth',
-                });
-              }}>
-              Contact
-            </a>
-          </li>
+          <Link href="/">Home</Link>
+          <Link href={`${baseURL}#skills`}>Skills</Link>
+          <Link href={`${baseURL}/projects/${projectSlug}`}>Portfolio</Link>
+          <Link href={`${baseURL}#experience`}>Experience</Link>
+          <Link href={`${baseURL}#testimonials`}>Testimonies</Link>
+          <Link href={`${baseURL}#contact`}>Contact</Link>
         </ul>
       </div>
     </nav>
