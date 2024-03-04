@@ -32,9 +32,8 @@ export const metadata: Metadata = {
     'Freelance',
   ].join(', '),
   robots: {
-    index: false,
+    index: true,
     follow: true,
-    nocache: true,
     googleBot: {
       index: true,
       follow: false,
