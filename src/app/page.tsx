@@ -36,6 +36,7 @@ export default async function Home() {
             src="/images/hero-bg.webp"
             alt="Luna's Portfolio"
             fill
+            priority
             objectFit="cover"
             objectPosition="center"
           />
@@ -51,7 +52,7 @@ export default async function Home() {
               Luna <br />
               Cuevas
             </h1>{' '}
-            <p className="text-white text-2xl">Front End Developer</p>
+            <p className="text-white text-2xl">Full Stack Developer</p>
           </div>
 
           <div className="md:w-1/2 w-full flex justify-center h-[40vh] m-auto overflow-hidden">

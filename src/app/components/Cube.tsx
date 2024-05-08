@@ -192,7 +192,7 @@ const Cube = () => {
 
   return (
     <div
-      className="w-full  overflow-hidden h-full cursor-pointer"
+      className="w-full overflow-hidden h-full cursor-pointer"
       ref={mountRef}
     />
   );
